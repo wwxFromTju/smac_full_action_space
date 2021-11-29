@@ -42,7 +42,7 @@ class StarCraft2FullActionSpaceEnv(StarCraft2Env):
         reward_sparse, reward_only_positive, reward_death_value, reward_win,reward_defeat, reward_negative_scale, reward_scale, reward_scale_rate, replay_dir, replay_prefix, window_size_x,window_size_y,heuristic_ai,heuristic_rest,debug)
 
     def get_avail_agent_actions(self, agent_id):
-        avail_actions = super.get_avail_agent_actions(agent_id)
+        avail_actions = super().get_avail_agent_actions(agent_id)
         
         unit = self.get_unit_by_id(agent_id)
         if unit.health > 0:
@@ -51,7 +51,7 @@ class StarCraft2FullActionSpaceEnv(StarCraft2Env):
             return [1] + [0] * (self.n_actions - 1)
 
     def get_agent_action(self, a_id, action):
-        avail_actions = super.get_avail_agent_actions(a_id)
+        avail_actions = super().get_avail_agent_actions(a_id)
 
         if avail_actions[action] != 1:
             return None
